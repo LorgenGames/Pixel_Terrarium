@@ -1,17 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Very important</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
-  <body>
-    <h1>Pixel Terrarium</h1>
-    <canvas id="gameCanvas"></canvas>
-    <script src="game.js"></script>
+    <title>Godot Multiplayer Game</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Godot game will be embedded here -->
+    <script src="godot.js"></script>
+    <script>
+        Module = {
+            onRuntimeInitialized: function() {
+                const gameInstance = new Runtime();
+                gameInstance.main();
+            }
+        };
+    </script>
 </body>
 </html>
